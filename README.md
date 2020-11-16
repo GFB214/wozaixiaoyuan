@@ -9,3 +9,5 @@
 ^https:\/\/student\.wozaixiaoyuan\.com\/home\.json url script-request-header https://raw.githubusercontent.com/Milky01/wozaixiaoyuan/main/hello.js
 
 hostname = student.wozaixiaoyuan.com
+
+todo: 定位签到
