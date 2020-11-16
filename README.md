@@ -1,4 +1,5 @@
-# wozaixiaoyuan
+# 我在校园自动打卡
+无需电脑无需手动抓包
 圈X我在校园自动打卡，进入小程序自动获取token
 
 [task_local]
