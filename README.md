@@ -6,6 +6,6 @@
 1 0,11,17 * * * hello.js, tag=自动打卡, enabled=true
 
 [rewrite_local]
-^https:\/\/student\.wozaixiaoyuan\.com\/home\.json url script-request-headerhttps://raw.githubusercontent.com/Milky01/wozaixiaoyuan/main/hello.js
+^https:\/\/student\.wozaixiaoyuan\.com\/home\.json url script-request-header https://raw.githubusercontent.com/Milky01/wozaixiaoyuan/main/hello.js
 
 hostname = student.wozaixiaoyuan.com
