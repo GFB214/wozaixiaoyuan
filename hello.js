@@ -57,7 +57,8 @@ function ReadToken(){
  const isRequest = typeof $request != "undefined"
  if(isRequest){
   GetToken()
-  return
+  Sign()
+ return
  }
  console.log($prefs.valueForKey(KEY))
  Sign()
