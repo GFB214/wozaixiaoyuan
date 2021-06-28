@@ -1,4 +1,4 @@
-# 我在校园自动打卡
+# 我在校园自动打卡 假假条
 ios quantumult x，我在校园自动打卡，进入小程序自动获取token
 
 ```
@@ -12,6 +12,12 @@ hostname = student.wozaixiaoyuan.com
 #晚点名签到，依赖hello.js获取token
 [task_local]
 6 20 * * * https://raw.githubusercontent.com/Milky01/wozaixiaoyuan/main/dosign.js, tag=晚点名签到, enabled=true
-```
 
-~~todo: 定位签到~~
+#虚拟假条列表
+[rewrite_local]
+^https://student\.wozaixiaoyuan\.com/leave2/getList\.json url script-response-body https://raw.githubusercontent.com/Milky01/wozaixiaoyuan/main/list4leave.js
+
+#虚拟假条详情
+[rewrite_local]
+^https://student\.wozaixiaoyuan\.com/leave2/getLeave\.json url script-response-body https://raw.githubusercontent.com/Milky01/wozaixiaoyuan/main/ask4leave.js
+```
