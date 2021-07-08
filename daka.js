@@ -29,7 +29,7 @@ function Sign(){
   };
   
   seq = GetSeq()
-  if (req == -1) {
+  if (seq == -1) {
     $notify("打卡失败","不在打卡时段")
     return
   }
