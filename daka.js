@@ -51,8 +51,10 @@ function Sign(){
   });
 }
 
+// && $request.url.match(/student\.wozaixiaoyuan\.com\/home\.json/)
+
 function GetToken(){
-  if($request.headers && $request.url.match(/student\.wozaixiaoyuan\.com\/home\.json/)){
+  if($request.headers){
    const token = $request.headers['token']
    $prefs.setValueForKey(token,KEY)
    $notify("获取token成功","",token)
