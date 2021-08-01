@@ -1,4 +1,4 @@
-const KEY = 'token'
+const KEY = 'JWSESSION'
 
 function GetSeq(){
   const myDate = new Date()
@@ -25,7 +25,7 @@ function Sign(){
   'Referer' : `https://servicewechat.com/wxce6d08f781975d91/149/page-frame.html`,
   'Host' : `student.wozaixiaoyuan.com`,
   'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.18(0x17001229) NetType/4G Language/zh_CN`,
-  'token' : $prefs.valueForKey(KEY)
+  'JWSESSION' : $prefs.valueForKey(KEY)
   };
   
   seq = GetSeq()
@@ -55,7 +55,7 @@ function Sign(){
 
 function GetToken(){
   if($request.headers){
-   const token = $request.headers['token']
+   const token = $request.headers[KEY]
    $prefs.setValueForKey(token,KEY)
    $notify("获取token成功","",token)
  } 
