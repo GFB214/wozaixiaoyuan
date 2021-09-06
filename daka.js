@@ -33,7 +33,9 @@ function Sign(){
     $notify("打卡失败","不在打卡时段")
     return
   }
-  const body = `answers=%5B%220%22%5D&seq=`+ seq +`&temperature=36.0&userId=&latitude=23.084003&longitude=113.317412&country=%E4%B8%AD%E5%9B%BD&city=%E5%B9%BF%E5%B7%9E%E5%B8%82&district=%E6%B5%B7%E7%8F%A0%E5%8C%BA&province=%E5%B9%BF%E4%B8%9C%E7%9C%81&township=%E6%B1%9F%E6%B5%B7%E8%A1%97%E9%81%93&street=%E4%B8%8A%E5%86%B2%E4%B8%AD%E7%BA%A6%E6%96%B0%E8%A1%97%E4%B8%80%E5%B7%B7&myArea=`;
+
+  //const body =  `answers=["0"]&seq=`+ seq + `&temperature=温度&userId=&latitude=经度&longitude=纬度&country=中国&city=XX市&district=XX区&province=XX省&township=XX街道&street=XXXXX地址&myArea=`
+  const body = `自行抓包替换`
   
   const myRequest = {
       url: url,
@@ -45,13 +47,16 @@ function Sign(){
     const data = JSON.parse(response.body)
     if(data.code == 0){
       $notify("打卡成功","打卡成功","打卡成功")
-    }
+      $done()
+    } else {
+      $notify("打卡失败","打卡失败","打卡失败")
+      $done()
+  }
   }, reason => {
       $notify("打卡失败","打卡失败","打卡失败")
+      $done()
   });
 }
-
-// && $request.url.match(/student\.wozaixiaoyuan\.com\/home\.json/)
 
 function GetToken(){
   if($request.headers){
@@ -62,18 +67,18 @@ function GetToken(){
 }
 
 function ReadToken(){
- const isRequest = typeof $request != "undefined"
+const isRequest = typeof $request != "undefined"
  if(isRequest){
-  GetToken()
+  const isPost = $request.method == "POST"
+  if(isPost){
+   GetToken()
+   Sign()
+  } else {
+   $done()
+  }
  }
- console.log($prefs.valueForKey(KEY))
  Sign()
+ 
 }
 
 ReadToken()
-$done({})
-
-
-
-
-
