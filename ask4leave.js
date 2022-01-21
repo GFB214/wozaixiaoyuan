@@ -122,7 +122,9 @@ body = {
                 "name": approveName,
                 "state": approveState,
                 "time": approvetime,
-                "position": approveAcademy
+                "position": approveAcademy,
+                //4为辅导员，3为院级
+                "userType": 4
             }
         ],
         "studentId": studentId,
